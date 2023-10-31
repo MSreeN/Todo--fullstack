@@ -17,6 +17,8 @@ public class BasicAuthenticationSecurityConfiguration {
                         .requestMatchers(optionsMatcher).permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
+                //this lambda expression wll return httpsecurity object with csrf set to disable and this
+                //method will return that object as bean
                 .csrf(csrf -> csrf.disable());
         return httpSecurity.build();
     }
